@@ -10,6 +10,9 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class CheckOutputFromOriginalGameRunner {
@@ -32,6 +35,8 @@ public class CheckOutputFromOriginalGameRunner {
         final ByteArrayOutputStream canvasAsStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvasAsStream));
 
+        final Map<Integer, String> messagesByGame = new HashMap<Integer, String>();
+
         Game aGame = new Game();
 
         aGame.add("Chet");
@@ -50,6 +55,8 @@ public class CheckOutputFromOriginalGameRunner {
             }
         } while (notAWinner);
 
-        Approvals.verify(canvasAsStream.toString(StandardCharsets.UTF_8));
+        final String gameMessages = canvasAsStream.toString(StandardCharsets.UTF_8);
+        messagesByGame.put(762, gameMessages);
+        Approvals.verify(messagesByGame);
     }
 }
