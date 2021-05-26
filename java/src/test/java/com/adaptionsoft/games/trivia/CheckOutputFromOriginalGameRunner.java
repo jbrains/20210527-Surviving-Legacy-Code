@@ -37,7 +37,7 @@ public class CheckOutputFromOriginalGameRunner {
 
         final int startingGameId = 762;
         for (int i = 0; i < 1; i++) {
-            final int gameId = startingGameId;
+            final int gameId = startingGameId + i * 19;
 
             Game aGame = new Game();
 
