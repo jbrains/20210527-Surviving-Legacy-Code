@@ -37,13 +37,15 @@ public class CheckOutputFromOriginalGameRunner {
 
         final Map<Integer, String> messagesByGame = new HashMap<Integer, String>();
 
+        final int gameId = 762;
+
         Game aGame = new Game();
 
         aGame.add("Chet");
         aGame.add("Pat");
         aGame.add("Sue");
 
-        Random rand = new Random(762);
+        Random rand = new Random(gameId);
 
         do {
             aGame.roll(rand.nextInt(5) + 1);
@@ -56,7 +58,7 @@ public class CheckOutputFromOriginalGameRunner {
         } while (notAWinner);
 
         final String gameMessages = canvasAsStream.toString(StandardCharsets.UTF_8);
-        messagesByGame.put(762, gameMessages);
+        messagesByGame.put(gameId, gameMessages);
         Approvals.verify(messagesByGame);
     }
 }
