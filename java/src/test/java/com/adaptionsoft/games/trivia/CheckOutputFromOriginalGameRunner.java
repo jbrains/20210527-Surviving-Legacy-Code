@@ -29,14 +29,19 @@ public class CheckOutputFromOriginalGameRunner {
     }
 
     @Test
-    public void oneGame() throws Exception {
+    public void severalGames() throws Exception {
         final ByteArrayOutputStream canvasAsStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(canvasAsStream));
 
-        final Map<Integer, String> messagesByGame = new HashMap<Integer, String>();
-
+        final int howManyGames = 10;
         final int startingGameId = 762;
-        for (int i = 0; i < 1; i++) {
+        final Map<Integer, String> messagesByGame = runGames(canvasAsStream, howManyGames, startingGameId);
+        Approvals.verify(messagesByGame);
+    }
+
+    private Map<Integer, String> runGames(final ByteArrayOutputStream canvasAsStream, final int howManyGames, final int startingGameId) {
+        final Map<Integer, String> messagesByGame = new HashMap<>();
+        for (int i = 0; i < howManyGames; i++) {
             final int gameId = startingGameId + i * 19;
 
             Game aGame = new Game();
@@ -60,6 +65,6 @@ public class CheckOutputFromOriginalGameRunner {
             final String gameMessages = canvasAsStream.toString(StandardCharsets.UTF_8);
             messagesByGame.put(gameId, gameMessages);
         }
-        Approvals.verify(messagesByGame);
+        return messagesByGame;
     }
 }
