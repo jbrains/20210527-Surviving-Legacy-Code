@@ -1,6 +1,5 @@
 package com.adaptionsoft.games.trivia;
 
-import com.adaptionsoft.games.trivia.runner.GameRunner;
 import com.adaptionsoft.games.uglytrivia.Game;
 import org.approvaltests.Approvals;
 import org.junit.After;
@@ -10,7 +9,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -52,7 +50,8 @@ public class CheckOutputFromOriginalGameRunner {
 
             if (rand.nextInt(9) == 7) {
                 notAWinner = aGame.wrongAnswer();
-            } else {
+            }
+            else {
                 notAWinner = aGame.wasCorrectlyAnswered();
             }
         } while (notAWinner);
