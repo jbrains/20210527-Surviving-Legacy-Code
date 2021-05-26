@@ -2,6 +2,7 @@ target/
 
 # IntelliJ IDEA assets -- import into IDEA as a Maven project instead
 .idea
+*.iml
 
 # Legacy Eclipse assets
 .classpath
