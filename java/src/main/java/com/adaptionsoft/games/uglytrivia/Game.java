@@ -48,7 +48,7 @@ public class Game {
 	}
 
 	protected void reportMessage(final String message) {
-		System.out.println(message);
+		new ReportMessagesToConsole().reportMessage(message);
 	}
 
 	public int howManyPlayers() {
