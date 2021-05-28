@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class RollDieTest {
-    private static class TestableGame extends Game {
-        public TestableGame(int startingPlace) {
+    private static class SinglePlayerGame extends Game {
+        public SinglePlayerGame(int startingPlace) {
             add("::irrelevant player::");
             places[0] = startingPlace;
         }
@@ -28,7 +28,7 @@ public class RollDieTest {
 
     @Test
     public void happyPath() throws Exception {
-        final TestableGame game = new TestableGame(0);
+        final SinglePlayerGame game = new SinglePlayerGame(0);
 
         game.roll(4);
 
