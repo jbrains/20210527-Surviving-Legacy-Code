@@ -5,6 +5,8 @@ import org.junit.Test;
 
 public class RollDieTest {
     private static class SinglePlayerGame extends Game {
+        private DoNothingMessageReporter messageReporter = new DoNothingMessageReporter();
+
         public SinglePlayerGame(int startingPlace) {
             add("::irrelevant player::");
             places[0] = startingPlace;
@@ -12,7 +14,7 @@ public class RollDieTest {
 
         @Override
         protected void reportMessage(final String message) {
-            // Intentionally do nothing!
+            messageReporter.reportMessage(message);
         }
 
         @Override
@@ -23,6 +25,12 @@ public class RollDieTest {
 
         private int placeOfOnlyPlayer() {
             return places[0];
+        }
+    }
+
+    private static class DoNothingMessageReporter {
+        public void reportMessage(final String message) {
+            // Intentionally do nothing!
         }
     }
 
