@@ -5,8 +5,9 @@ import org.junit.Test;
 
 public class RollDieTest {
     private static class TestableGame extends Game {
-        public TestableGame() {
+        public TestableGame(int startingPlace) {
             add("::irrelevant player::");
+            places[0] = startingPlace;
         }
 
         @Override
@@ -23,7 +24,7 @@ public class RollDieTest {
 
     @Test
     public void happyPath() throws Exception {
-        final TestableGame game = new TestableGame();
+        final TestableGame game = new TestableGame(0);
 
         game.roll(4);
 
