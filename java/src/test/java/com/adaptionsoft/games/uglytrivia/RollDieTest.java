@@ -5,16 +5,10 @@ import org.junit.Test;
 
 public class RollDieTest {
     private static class SinglePlayerGame extends Game {
-        private MessageReporter messageReporter = new DoNothingMessageReporter();
-
         public SinglePlayerGame(int startingPlace) {
+            super(new DoNothingMessageReporter());
             add("::irrelevant player::");
             places[0] = startingPlace;
-        }
-
-        @Override
-        protected void reportMessage(final String message) {
-            messageReporter.reportMessage(message);
         }
 
         @Override
