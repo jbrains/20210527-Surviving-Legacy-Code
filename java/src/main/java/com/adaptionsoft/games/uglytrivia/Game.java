@@ -16,8 +16,9 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    
-    public  Game(){
+	private ReportMessagesToConsole reportMessagesToConsole = new ReportMessagesToConsole();
+
+	public  Game(){
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
@@ -48,7 +49,7 @@ public class Game {
 	}
 
 	protected void reportMessage(final String message) {
-		new ReportMessagesToConsole().reportMessage(message);
+		reportMessagesToConsole.reportMessage(message);
 	}
 
 	public int howManyPlayers() {
