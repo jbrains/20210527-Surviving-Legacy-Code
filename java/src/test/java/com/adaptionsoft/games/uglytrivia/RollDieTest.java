@@ -1,5 +1,6 @@
 package com.adaptionsoft.games.uglytrivia;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class RollDieTest {
@@ -22,5 +23,7 @@ public class RollDieTest {
         game.add("::irrelevant player::");
 
         game.roll(4);
+
+        Assert.assertEquals(4, game.places[0]);
     }
 }
