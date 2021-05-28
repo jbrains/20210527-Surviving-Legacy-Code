@@ -16,7 +16,7 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-	private ReportMessagesToConsole reportMessagesToConsole = new ReportMessagesToConsole();
+	private MessageReporter messageReporter = new ReportMessagesToConsole();
 
 	public  Game(){
     	for (int i = 0; i < 50; i++) {
@@ -25,6 +25,10 @@ public class Game {
 			sportsQuestions.addLast(("Sports Question " + i));
 			rockQuestions.addLast(createRockQuestion(i));
     	}
+    }
+
+    public Game(MessageReporter messageReporter) {
+	    this.messageReporter = messageReporter;
     }
 
 	public String createRockQuestion(int index){
@@ -49,7 +53,7 @@ public class Game {
 	}
 
 	protected void reportMessage(final String message) {
-		reportMessagesToConsole.reportMessage(message);
+		messageReporter.reportMessage(message);
 	}
 
 	public int howManyPlayers() {
