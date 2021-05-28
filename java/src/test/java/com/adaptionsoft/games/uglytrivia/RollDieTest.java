@@ -20,6 +20,10 @@ public class RollDieTest {
             // Don't worry about this yet.
             // Set an expectation on this side-effect in another test.
         }
+
+        private int placeOfOnlyPlayer() {
+            return places[0];
+        }
     }
 
     @Test
@@ -28,6 +32,7 @@ public class RollDieTest {
 
         game.roll(4);
 
-        Assert.assertEquals(4, game.places[0]);
+        Assert.assertEquals(4, game.placeOfOnlyPlayer());
     }
+
 }
