@@ -8,6 +8,12 @@ public class RollDieTest {
         protected void reportMessage(final String message) {
             // Intentionally do nothing!
         }
+
+        @Override
+        protected void askQuestion() {
+            // Don't worry about this yet.
+            // Set an expectation on this side-effect in another test.
+        }
     }
 
     @Test

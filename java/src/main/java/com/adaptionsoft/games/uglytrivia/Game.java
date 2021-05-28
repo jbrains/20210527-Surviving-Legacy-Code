@@ -91,7 +91,7 @@ public class Game {
 		
 	}
 
-	private void askQuestion() {
+	protected void askQuestion() {
 		if (currentCategory() == "Pop")
 			System.out.println(popQuestions.removeFirst());
 		if (currentCategory() == "Science")
