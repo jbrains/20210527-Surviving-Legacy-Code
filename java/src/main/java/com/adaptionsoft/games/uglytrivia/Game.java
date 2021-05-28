@@ -16,9 +16,10 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-	private MessageReporter messageReporter = new ReportMessagesToConsole();
+	private MessageReporter messageReporter;
 
 	public  Game(){
+		this(new ReportMessagesToConsole());
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
