@@ -41,12 +41,16 @@ public class Game {
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
-	    
-	    System.out.println(playerName + " was added");
-	    System.out.println("They are player number " + players.size());
+
+		reportMessage(playerName + " was added");
+		System.out.println("They are player number " + players.size());
 		return true;
 	}
-	
+
+	protected void reportMessage(final String message) {
+		System.out.println(message);
+	}
+
 	public int howManyPlayers() {
 		return players.size();
 	}
