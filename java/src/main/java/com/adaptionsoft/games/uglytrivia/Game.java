@@ -43,7 +43,7 @@ public class Game {
 	    inPenaltyBox[howManyPlayers()] = false;
 
 		reportMessage(playerName + " was added");
-		System.out.println("They are player number " + players.size());
+		reportMessage("They are player number " + players.size());
 		return true;
 	}
 
@@ -56,8 +56,8 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		System.out.println(players.get(currentPlayer) + " is the current player");
-		System.out.println("They have rolled a " + roll);
+		reportMessage(players.get(currentPlayer) + " is the current player");
+		reportMessage("They have rolled a " + roll);
 		
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
@@ -82,10 +82,10 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 			
-			System.out.println(players.get(currentPlayer) 
+			reportMessage(players.get(currentPlayer)
 					+ "'s new location is " 
 					+ places[currentPlayer]);
-			System.out.println("The category is " + currentCategory());
+			reportMessage("The category is " + currentCategory());
 			askQuestion();
 		}
 		
